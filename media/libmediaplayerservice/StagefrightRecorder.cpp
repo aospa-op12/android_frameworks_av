@@ -1202,7 +1202,7 @@ status_t StagefrightRecorder::setParameter(
         return setLogSessionId(value);
     } else if (key == "OplusUserData") {
         // [PATCH OPLUSHDR] Record and pass parameter to Muxer
-        mOplusUserData = value.c_str();
+        mParams = value.c_str();
         return OK;
     } else if (key == "set-title") {
         return OK;
@@ -2549,8 +2549,8 @@ void StagefrightRecorder::setupMPEG4orWEBMMetaData(sp<MetaData> *meta) {
     }
 
     // [PATCH OPLUSHDR] Pass metadata to MPEG4Writer
-    if (!mOplusUserData.empty()) {
-        (*meta)->setCString(kKeyOplusUserData, mOplusUserData.c_str());
+    if (!mParams.empty()) {
+        (*meta)->setCString(kKeyOplusUserData, mParams.c_str());
     }
 }
 
