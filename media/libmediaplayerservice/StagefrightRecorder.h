@@ -122,7 +122,6 @@ protected:
     void updateMetrics();
 
     AString mLogSessionId;
-    AString mOplusUserData;  // [PATCH OPLUSHDR]
     audio_source_t mAudioSource;
     privacy_sensitive_t mPrivacySensitive;
     video_source mVideoSource;
@@ -184,7 +183,7 @@ protected:
 // QTI_BEGIN: 2018-05-17: Video: stagefright: Fix recording issues when EIS enabled
     sp<CameraSource> mCameraSource;
 // QTI_END: 2018-05-17: Video: stagefright: Fix recording issues when EIS enabled
-    String8 mParams;
+    String8 mParams;  // [PATCH OPLUSHDR] OplusUserData storage; preserves ABI layout
 
     MetadataBufferType mMetaDataStoredInVideoBuffers;
     MediaProfiles *mEncoderProfiles;
